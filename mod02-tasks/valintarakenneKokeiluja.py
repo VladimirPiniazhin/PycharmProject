@@ -18,11 +18,33 @@
 
 #_______________________________________________________
 
-mjono1 = input("Anna eläinlaji:")
-mjono2 = input("Anna eläinlaji:")
+#mjono1 = input("Anna eläinlaji:")
+#mjono2 = input("Anna eläinlaji:")
 
-if mjono1 == mjono1:
-    print("Annoit saman lajin!")
+#if mjono1 == mjono1:
+    #print("Annoit saman lajin!")
+
+
+#_______________________________________________________
+
+ika = float(input("Anna ikäsi:"))
+#if ika >= 15 and ika <= 18:
+    #paino = float(input("Anna painosi:"))
+#if ika >= 18 or (ika >= 15 and paino >= 55):
+    #print ("Lääkekeen käyttö sallittu")
+
+if ika >= 18:
+    print("Lääkekeen käyttö sallittu")
+
+elif ika <15:
+    print("Lääkekeen käyttö sallittu")
+
+else:
+    paino = float(input("Anna painosi:"))
+    if paino >= 55:
+        print("Lääkekeen käyttö sallittu")
+
+
 
 
 
