@@ -1,14 +1,14 @@
+
 d = []
-n = input("Syötä numero: ")
+n = " "
 while n != "":
     n = input("Syötä numero: ")
     if n.isnumeric():
-        d.append(n)
+        d.append(int(n))
     else:
         print("Se ei ole numero")
 
-print (sorted(d,reverse=True))
-#print(d)
-#for i in range(0,4):
-    #print(f"Suurin numero: {print(d[:4])}")
-#print(f"Yhteensä numeroita on {len(d)}; Max-arvo on {max(d)}; Min-arvo on {min(d)};")
+d1 = sorted(d, reverse=True)
+
+for i in range(5):
+    print(f"{i+1}. suurin numero: {d1[i]}")
