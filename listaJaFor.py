@@ -6,11 +6,18 @@
 #print(nimet)
 #print (len(nimet))
 
-nimet = []
+#nimet = []
 
-nimi = input("Anna ensimmäinen nimi tai lopeta painamalla Enter: ")
-while nimi!="":
-    nimet.append(nimi)
-    nimi = input("Anna seuraava nimi tai lopeta painamalla Enter: ")
+#nimi = input("Anna ensimmäinen nimi tai lopeta painamalla Enter: ")
+#while nimi!="":
+    #nimet.append(nimi)
+    #nimi = input("Anna seuraava nimi tai lopeta painamalla Enter: ")
 
-print(nimet)
+#print(nimet)
+
+
+def tervehdi():
+    print("<k,bjbfkds")
+    print("öskldnbdskjngml")
+
+tervehdi()
