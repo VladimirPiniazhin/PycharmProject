@@ -6,5 +6,6 @@ def muunnos():
         gallona = int(input("Anna gallonamäärä: "))
 
     return print("Ohjelma on lopetettu")
+
 muunnos()
 
