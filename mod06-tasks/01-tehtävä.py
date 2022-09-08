@@ -1,16 +1,14 @@
 import random
 
-silmaluku = input("Anna haluttu silmäluku: ")
-
-def create_lottery_row(silmaluku):
-
+def Heittely(n):
+    n = 0
     i = 0
-    while silmaluku != 6:
-        silmaluku = random.randint(1, 6)
+    while n != 6:
+        n = random.randint(1, 6)
         i += 1
-        if silmaluku != 6:
-            print(f"{i+1}. nro: {silmaluku}")
+        if n != 6:
+            print(f"{i+1}. nro: {n}")
 
-    return print(f"{i+1}. nro: {silmaluku}")
+    return print(f"{i+1}. nro: {n}")
 
-create_lottery_row(silmaluku)
+Heittely(6)
