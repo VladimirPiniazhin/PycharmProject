@@ -1,17 +1,17 @@
 
-
+import random
 def list_summa(list):
     b = []
     for n in list:
-        if n % 2 == 0:
+        if n % 2 != 0:
             b.append(n)
     return b
 
 a = []
-
-for i in range(5):
-    numero = int(input("Syötä 5 kokonaislukua: "))
-    a.append(numero)
+numero = int(input("Syötä montako numeroa pitää olla listassa: "))
+for i in range(numero):
+    n = random.randint(1, 9999)
+    a.append(n)
 
 list_summa(a)
 
