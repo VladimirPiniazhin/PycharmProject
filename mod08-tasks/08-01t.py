@@ -1,3 +1,7 @@
+#Kirjoita ohjelma, joka kysyy käyttäjältä lentoaseman ICAO-koodin. Ohjelma hakee ja tulostaa koodia vastaavan
+# lentokentän nimen ja sen sijaintikunnan kurssilla käytettävästä lentokenttätietokannasta
+
+
 import mysql.connector
 
 def connect_database():
@@ -12,21 +16,14 @@ def connect_database():
 
 connection = connect_database()
 
-
-def get_country(iso_code):
-    #sql = "SELECT * FROM country where iso_country = 'FI';"
-    sql = "SELECT iso_country, name, wikipedia_link FROM country;"
-    sql += " WHERE Sukunimi='" + sukunimi + "'"
+def get_airport(ident):
+    sql = f"SELECT name, iso_region FROM airport WHERE ident ='{ident}';"
     cursor = connection.cursor()
     cursor.execute(sql)
     result = cursor.fetchall() #type of result: list
     print("Koko tuloslista: ", result)
     print("Tuloksia yhteensä: ", cursor.rowcount)
-    if cursor.rowcount > 0:
-        for row in result:
-            print(f"{row[0]}: {row[1]}, wikipedia: {row[2]}")
-    else:
-        print("Ei ole tuloksia")
 
-get_country('FI')
-get_country('SE')
+
+isao = input("Anna ISAO: ")
+get_airport(isao)
