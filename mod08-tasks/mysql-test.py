@@ -16,7 +16,6 @@ connection = connect_database()
 def get_country(iso_code):
     #sql = "SELECT * FROM country where iso_country = 'FI';"
     sql = "SELECT iso_country, name, wikipedia_link FROM country;"
-    sql += " WHERE Sukunimi='" + sukunimi + "'"
     cursor = connection.cursor()
     cursor.execute(sql)
     result = cursor.fetchall() #type of result: list
