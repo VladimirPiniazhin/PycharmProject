@@ -14,6 +14,7 @@ def connect_database():
          autocommit=True
          )
 
+
 connection = connect_database()
 
 def get_airport(ident):
