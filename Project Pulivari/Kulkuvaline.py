@@ -1,12 +1,17 @@
 
 
-def aircraft():
-    Liitokone = {'speed':60, 'consumption':50}
-    Lentokone = {'speed':600, 'consumption':120}
-    Helikopteri = {'speed':300, 'consumption':100}
-    Havittaja = {'speed':1200, 'consumption':300}
-    Kuumailmapallo = {'speed':50, 'consumption':10}
+#def aircraft():
+liitokone = {'name': 'Liitokone', 'speed': 60, 'consumption': 50}
+lentokone = {'name': 'Lentokone', 'speed': 600, 'consumption': 120}
+helikopteri = {'name': 'Helikopteri', 'speed': 300, 'consumption': 100}
+havittaja = {'name': 'Havittaja', 'speed': 1200, 'consumption': 300}
+kuumailmapallo = {'name': 'Kuumailmapallo', 'speed': 50, 'consumption': 10}
 
-aircraft = {1:Liitokone, 2:Lentokone, 3:Helikopteri, 4:Havittaja, 5:Kuumailmapallo}
+aircraft = (liitokone, lentokone, helikopteri, havittaja, kuumailmapallo)
+    #return aircraft
 
-print(str(aircraft))
+k = aircraft[1]
+#for key,value in lentokone.items():
+    #print(key, ':', value)
+print(k)
+print(f"Valitsit: {k['name']} \nVauhti: {k['speed']} (km/h) \nKulutus: {k['consumption']}")
