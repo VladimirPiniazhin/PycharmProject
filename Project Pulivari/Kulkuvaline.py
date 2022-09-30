@@ -1,7 +1,12 @@
-Liitokone = {speed:60, consumption:,airport:}
-Lentokone = {speed:600, consumption:,airport:}
-Helikopteri = {speed:300, consumption:,airport:}
-Havittaja = {speed:1200, consumption:,airport:}
-Kuumailmapallo = {speed:50, consumption:,airport:}
 
-aircraft = (Liitokone,Lentokone,Helikopteri,Havittaja,Kuumailmapallo)
+
+def aircraft():
+    Liitokone = {'speed':60, 'consumption':50}
+    Lentokone = {'speed':600, 'consumption':120}
+    Helikopteri = {'speed':300, 'consumption':100}
+    Havittaja = {'speed':1200, 'consumption':300}
+    Kuumailmapallo = {'speed':50, 'consumption':10}
+
+aircraft = {1:Liitokone, 2:Lentokone, 3:Helikopteri, 4:Havittaja, 5:Kuumailmapallo}
+
+print(str(aircraft))
