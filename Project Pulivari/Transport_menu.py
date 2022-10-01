@@ -12,7 +12,7 @@ def aircrafts(n):
     return transport
 
 
-def transport_valiko():
+def transport_valikko():
     print(f"Nykyinen sijaintisi: Helsinki-Vantaa\nValitse kulkuväline")
     print("1 - Liitokone \n2 - Lentokone \n3 - Helikopteri \n4 - Hävittäjä \n5 - Kuumailmapallo")
 
@@ -25,6 +25,6 @@ def transport_valiko():
     print("Great!")
     return n
 
-n = transport_valiko()
+n = transport_valikko()
 
 aircrafts(n-1)
