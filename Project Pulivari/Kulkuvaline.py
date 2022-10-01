@@ -7,12 +7,7 @@ def aircraft_valiko(n):
     kuumailmapallo = {'name': 'Kuumailmapallo', 'speed': 50, 'consumption': 10}
     aircraft_list = (liitokone, lentokone, helikopteri, havittaja, kuumailmapallo)
     k = aircraft_list[n]
-    print(f"Valitsit: {k['name']} \nvauhti: {k['speed']} (km/h) \nkulutus: {k['consumption']} (CO2)")
+    print(f"Valitsit: {k['name']} \nVauhti: {k['speed']} (km/h) \nKulutus: {k['consumption']} (CO2)")
     return k
 
-#aircraft = aircraft_valiko(0)
-# aircraft_list = aircraft()
-# for key,value in lentokone.items():
-# print(key, ':', value)
-# k = aircraft_list[1]
-#print(f"valitsit: {aircraft['name']} \nvauhti: {aircraft['speed']} (km/h) \nkulutus: {aircraft['consumption']}")
+
