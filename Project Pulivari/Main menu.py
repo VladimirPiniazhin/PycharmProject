@@ -1,10 +1,16 @@
-import aircraft_valiko(n) from Kulkuvaline.py
+from Kulkuvaline import aircraft_valiko
 def main_menu():
-    print(f"Sinä olet Helsingissa.\nValitse kulkuväline")
+    print(f"Nykyinen sijaintisi: Helsinki\nValitse kulkuväline")
     print("1 - Liitokone \n2 - Lentokone \n3 - Helikopteri \n4 - Hävittäjä \n5 - Kuumailmapallo")
-    k = input("Syötä kulkuvälineen numero: ")
 
-    return kulku_valine
+    n = 6
+    while n >= 6 or n <= 0:
+        n = int(input("Syötä kulkuvälineen numero: "))
+        if n not in range(1,6):
+            print("Virheellinen numero. Syötä numero uudelleen")
+        else:
+            print("Great!")
+    return n
 
-
-main_menu()
+n = main_menu()
+aircraft_valiko(n-1)
