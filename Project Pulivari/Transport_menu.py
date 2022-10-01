@@ -1,5 +1,5 @@
 
-
+"""Kulkuvälineen valikko"""
 def aircrafts(n):
     liitokone = {'name': 'Liitokone', 'speed': 60, 'consumption': 50}
     lentokone = {'name': 'Lentokone', 'speed': 600, 'consumption': 120}
@@ -11,6 +11,7 @@ def aircrafts(n):
     print(f"Valitsit: {transport['name']} \nVauhti: {transport['speed']} (km/h) \nKulutus: {transport['consumption']} (CO2)")
     return transport
 
+"""Kulkuvälineen valikko"""
 
 def transport_valikko():
     print(f"Nykyinen sijaintisi: Helsinki-Vantaa\nValitse kulkuväline")
