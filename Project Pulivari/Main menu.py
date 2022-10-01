@@ -13,4 +13,5 @@ def main_menu():
     return n
 
 n = main_menu()
+
 aircraft_valiko(n-1)
