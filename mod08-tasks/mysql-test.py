@@ -15,17 +15,18 @@ connection = connect_database()
 
 def get_country(iso_code):
     #sql = "SELECT * FROM country where iso_country = 'FI';"
-    sql = "SELECT iso_country, name, wikipedia_link FROM country;"
+    sql = "SELECT rownum(), iso_country, name, wikipedia_link FROM country;"
     cursor = connection.cursor()
     cursor.execute(sql)
     result = cursor.fetchall() #type of result: list
-    print("Koko tuloslista: ", result)
-    print("Tuloksia yhteensä: ", cursor.rowcount)
+    #print("Koko tuloslista: ", result)
+    #print("Tuloksia yhteensä: ", cursor.rowcount)
     if cursor.rowcount > 0:
         for row in result:
-            print(f"{row[0]}: {row[1]}, wikipedia: {row[2]}")
+            print(f"{row[0]}: {row[1]}, {row[2]} wikipedia: {row[3]}")
     else:
         print("Ei ole tuloksia")
 
 get_country('FI')
-get_country('SE')
+
+print()
