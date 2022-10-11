@@ -5,7 +5,6 @@ import time
 import help
 from help import help
 from tabulate import tabulate
-from maan_valinta
 
 
 connection = mysql.connector.connect( # Täytyy vaihtaa username ja password kun testaa koodin toimivuutta.
@@ -16,6 +15,17 @@ connection = mysql.connector.connect( # Täytyy vaihtaa username ja password kun
     password = 'Yahoo',
     autocommit = True
     )
+
+import maan_valinta
+
+def db_iso_country_name_by_continent(continent): # Valitaan country taulusta maan nimi ja iso_country
+                                                 # koodi maanosan perusteella.
+    sql = f"SELECT DISTINCT iso_country, name from country where continent = '{continent}'"
+    query_cursor = connection.cursor()
+    query_cursor.execute(sql)
+    result = query_cursor.fetchall()
+    return result
+
 
 def db_airport_by_country_transport(country, airport_type): # Valitaan airport taulusta nimi ja ident-koodi maan iso_country
                                                             # koodin perusteella ja airport_typen perusteella joka määritellään
