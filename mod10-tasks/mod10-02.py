@@ -39,10 +39,23 @@ class Talo:
         for i in range(self.h_maara):
             self.hissit.append(Hissi)
     def aja_hissia(self, num, n):
-        #for self.hissit[num] in self.hissit:
+        while self.hissit[num].kerros != n:
+            if n > self.hissit[num].kerros:
+                #self.hissit[num].kerros_ylos(self)
+                self.hissit[num].kerros += 1
+                print(f"Nyt on {self.hissit[num].kerros}")
+            elif n < self.hissit[num].kerros:
+                #self.hissit[num].kerros_alas(self)
+                self.hissit[num].kerros -= 1
+                print(f"Nyt on {self.hissit[num].kerros}")
+        print(f"Saapuneet {self.hissit[num].kerros}")
 
 # PÄÄOHJELMA
 
 t = Talo(0,10,3)
-
+#print(t.h_maara)
+print(t.hissit[1].kerros)
+t.aja_hissia(1, 3)
+print(t.hissit[1].kerros)
+t.aja_hissia(1, 6)
 print(t.hissit[1].kerros)
