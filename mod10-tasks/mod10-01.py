@@ -17,10 +17,9 @@ class Hissi:
 
     def siirry_kerrokseen(self, n):
        if n < self.kerros:
-           kerros_ylos
-
-
-
+           Hissi.kerros_ylos(self)
+       elif n > self.kerros:
+           Hissi.kerros_alas(self)
     def kerros_ylos (self):
        self.kerros = self.kerros + 1
 
