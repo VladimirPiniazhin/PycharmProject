@@ -25,10 +25,10 @@ class Hissi:
                print(f"Nyt on {self.kerros}")
         print(f"Saapuneet {self.kerros}")
     def kerros_ylos (self):
-       self.kerros = self.kerros + 1
+       self.kerros += 1
 
     def kerros_alas(self):
-       self.kerros = self.kerros - 1
+       self.kerros -= 1
 
 # PÄÄOHJELMA
 
