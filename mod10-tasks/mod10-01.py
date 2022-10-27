@@ -16,16 +16,21 @@ class Hissi:
         self.ylimman  = ylimman
 
     def siirry_kerrokseen(self, n):
-       if n < self.kerros:
-           Hissi.kerros_ylos(self)
-       elif n > self.kerros:
-           Hissi.kerros_alas(self)
+        while self.kerros != n:
+           if n > self.kerros:
+               self.kerros_ylos()
+               print(f"Nyt on {self.kerros}")
+           elif n < self.kerros:
+               self.kerros_alas()
+               print(f"Nyt on {self.kerros}")
+        print(f"Saapuneet {self.kerros}")
     def kerros_ylos (self):
        self.kerros = self.kerros + 1
 
     def kerros_alas(self):
        self.kerros = self.kerros - 1
 
-
-
 # PÄÄOHJELMA
+
+h = Hissi(0, 5)
+h.siirry_kerrokseen(5)
