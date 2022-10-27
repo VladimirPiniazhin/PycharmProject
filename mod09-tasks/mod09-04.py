@@ -1,3 +1,9 @@
+
+
+
+
+
+
 import random
 class Auto:
     "Tämä luokka kuvailee auton ominaisuksia"
@@ -24,13 +30,13 @@ class Auto:
         self.matka = self.nopeus * t
 
 # PÄÄOHJELMA
+autot = []
 
+for i in range(10):
+    n = random.randint(100, 200)
+    autot.append(Auto(f"ABC-{i+1}", n))
 
-
-autot = [Auto(f"ABC-{i+1}", random.randint(100, 200)) for i in range(10)]
-
-#for i in range(10):
-    #auto = Auto(f"ABC-{i+1}", random.randint(100, 200))
-    #autojen_list.append(auto)
-
-print(autot)
+for auto in autot:
+    print("\n".join((f"Rekisteritunnus: {auto.rekkari:>20}", f"Huippunopeus: {auto.huippunopeus:>23}",
+                 f"Tämänhetkillinen nopeus: {auto.nopeus:>12}", f"Kuljettu matka: {auto.matka:>21}")))
+    print()
