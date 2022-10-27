@@ -8,10 +8,6 @@ class Auto:
     def __init__(self, rekkari, huippunopeus):
         self.rekkari = rekkari
         self.huippunopeus = huippunopeus
-        self.autot = []
-
-    def autoLisays(self, auto):
-        self.autot.append(auto)
 
     def kiihdyta(self, v):
         self.nopeus = self.nopeus + v
@@ -21,14 +17,31 @@ class Auto:
             self.nopeus = 0
 
     def kulje(self, t):
-        self.matka = self.nopeus * t
+        self.matka = self.matka + self.nopeus * t
 
 # PÄÄOHJELMA
+
 autot = []
 
 for i in range(10):
     n = random.randint(100, 200)
     autot.append(Auto(f"ABC-{i+1}", n))
+
+def kilpailu(auto):
+    n = random.randint(-10, 15)
+    auto.kiihdyta(n)
+    auto.kulje(1)
+    return
+
+i = 0
+kilpailu_alku = list(map(kilpailu, autot))
+while i < 1:
+    #kilpailu_alku = list(map(kilpailu, autot))
+    for auto in autot:
+        if auto.matka < 10000:
+            kilpailu_alku = list(map(kilpailu, autot))
+        else:
+            i += 1
 
 for auto in autot:
     print("\n".join((f"Rekisteritunnus: {auto.rekkari:>20}", f"Huippunopeus: {auto.huippunopeus:>23}",
