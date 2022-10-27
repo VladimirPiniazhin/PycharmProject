@@ -1,9 +1,3 @@
-
-
-
-
-
-
 import random
 class Auto:
     "Tämä luokka kuvailee auton ominaisuksia"
