@@ -14,6 +14,7 @@ class Auto:
         self.rekkari = rekkari
         self.huippunopeus = huippunopeus
 
+
     def kiihdyta(self, v):
         self.nopeus = self.nopeus + v
         if self.nopeus >= self.huippunopeus:
