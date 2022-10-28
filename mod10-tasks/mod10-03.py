@@ -1,3 +1,7 @@
+#Jatka edellisen tehtävän ohjelmaa siten, että Talo-luokassa on parametriton metodi palohälytys, joka käskee kaikki
+# hissit pohjakerrokseen. Jatka pääohjelmaa siten, että talossasi tulee palohälytys.
+
+
 class Hissi:
     "Tämä luokka kuvailee hissin ominaisuksia"
 
@@ -27,13 +31,14 @@ class Talo:
 
     kerros = 0  #Nykyinen kerros
     hissit = []
+
     def __init__(self, alimman, ylimman, h_maara):
-        self.alimman = alimman
-        self.ylimman  = ylimman
+        super().__init__(alimman, ylimman)
         self.h_maara = h_maara
 
         for i in range(self.h_maara):
             self.hissit.append(Hissi)
+
     def aja_hissia(self, num, n):
         while self.hissit[num].kerros != n:
             if n > self.hissit[num].kerros:
@@ -45,6 +50,10 @@ class Talo:
                 self.hissit[num].kerros -= 1
                 print(f"Nyt on {self.hissit[num].kerros}")
         print(f"Saapuneet {self.hissit[num].kerros}")
+
+    def palohalytys(self):
+        for hissi in self.hissit:
+            hissi = list(map(Hissi.siirry_kerrokseen(0), self.hissit))
 
 # PÄÄOHJELMA
 
