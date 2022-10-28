@@ -10,22 +10,20 @@ class Hissi:
         self.alimman = alimman
         self.ylimman  = ylimman
 
-    @classmethod
+    def siirry_kerrokseen(self, n):
+        while self.kerros != n:
+           if n > self.kerros:
+               self.kerros_ylos()
+               print(f"Nyt on {self.kerros}")
+           elif n < self.kerros:
+               self.kerros_alas()
+               print(f"Nyt on {self.kerros}")
+        print(f"Saapuneet {self.kerros}")
+    def kerros_ylos (self):
+       self.kerros = self.kerros + 1
 
-    def siirry_kerrokseen(cls, n):
-        while cls.kerros != n:
-           if n > cls.kerros:
-               cls.kerros_ylos()
-               print(f"Nyt on {cls.kerros}")
-           elif n < cls.kerros:
-               cls.kerros_alas()
-               print(f"Nyt on {cls.kerros}")
-        print(f"Saapuneet {cls.kerros}")
-    def kerros_ylos (cls):
-       cls.kerros = cls.kerros + 1
-
-    def kerros_alas(cls):
-       cls.kerros = cls.kerros - 1
+    def kerros_alas(self):
+       self.kerros = self.kerros - 1
 
 
 class Talo:
@@ -53,7 +51,7 @@ class Talo:
                 print(f"Nyt on {self.hissit[num].kerros}")
         print(f"Saapuneet {self.hissit[num].kerros}")
 
-    def palohalytys(self):
+    def palohalytys(self,):
         for hissi in self.hissit:
             hissi = list(map(Hissi.siirry_kerrokseen(0), self.hissit))
 
