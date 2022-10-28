@@ -26,7 +26,7 @@ class Hissi:
        self.kerros = self.kerros - 1
 
 
-class Talo:
+class Talo(Hissi):
     "Tämä luokka kuvailee hissin ominaisuksia"
 
     kerros = 0  #Nykyinen kerros
