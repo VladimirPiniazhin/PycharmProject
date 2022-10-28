@@ -1,5 +1,6 @@
 #Jatka edellisen tehtävän ohjelmaa siten, että Talo-luokassa on parametriton metodi palohälytys, joka käskee kaikki
 # hissit pohjakerrokseen. Jatka pääohjelmaa siten, että talossasi tulee palohälytys.
+import time
 
 
 class Hissi:
@@ -11,14 +12,17 @@ class Hissi:
         self.ylimman  = ylimman
 
     def siirry_kerrokseen(self, n):
+        if n < self.alimman or n > self.ylimman:
+            return
         while self.kerros != n:
            if n > self.kerros:
                self.kerros_ylos()
-               print(f"Nyt on {self.kerros}")
+               print(f"Nyt on {self.kerros} kerros")
            elif n < self.kerros:
                self.kerros_alas()
-               print(f"Nyt on {self.kerros}")
-        print(f"Saapuneet {self.kerros}")
+               print(f"Nyt on {self.kerros} kerros")
+        print(f"Olemme saapuneet {self.kerros}")
+
     def kerros_ylos (self):
        self.kerros = self.kerros + 1
 
@@ -26,41 +30,34 @@ class Hissi:
        self.kerros = self.kerros - 1
 
 
-class Talo(Hissi):
-    "Tämä luokka kuvailee hissin ominaisuksia"
-
-    kerros = 0  #Nykyinen kerros
-    hissit = []
+class Talo:
+    "Tämä luokka kuvailee talon ominaisuksia"
 
     def __init__(self, alimman, ylimman, h_maara):
-        super().__init__(alimman, ylimman)
         self.h_maara = h_maara
-
+        self.hissit = []
         for i in range(self.h_maara):
-            self.hissit.append(Hissi)
+            self.hissit.append(Hissi(alimman, ylimman))
 
     def aja_hissia(self, num, n):
-        while self.hissit[num].kerros != n:
-            if n > self.hissit[num].kerros:
-                #self.hissit[num].kerros_ylos(self)
-                self.hissit[num].kerros += 1
-                print(f"Nyt on {self.hissit[num].kerros}")
-            elif n < self.hissit[num].kerros:
-                #self.hissit[num].kerros_alas(self)
-                self.hissit[num].kerros -= 1
-                print(f"Nyt on {self.hissit[num].kerros}")
-        print(f"Saapuneet {self.hissit[num].kerros}")
+        self.hissit[num].siirry_kerrokseen(n)
 
-    def palohalytys(self,):
-        for hissi in self.hissit:
-            hissi = list(map(Hissi.siirry_kerrokseen(0), self.hissit))
+    def palohalytys(self):
+        self.hissit.siirry_kerrokseen(0)
 
 # PÄÄOHJELMA
 
 t = Talo(0,10,3)
-#print(t.h_maara)
-print(t.hissit[1].kerros)
-t.aja_hissia(1, 3)
-print(t.hissit[1].kerros)
-t.aja_hissia(1, 6)
-print(t.hissit[1].kerros)
+
+t.aja_hissia(1, 7)
+print(f"Olet {t.hissit[1].kerros}. kerroksessa")
+
+time.sleep(3)
+
+t.palohalytys()
+
+print(f"Olet {t.hissit[1].kerros}. kerroksessa")
+
+
+
+
