@@ -3,12 +3,11 @@ from prettytable import PrettyTable
 class Auto:
     "Tämä luokka kuvailee auton ominaisuksia"
 
-    nopeus = 0
-    matka = 0
-
     def __init__(self, rekkari, huippunopeus):
         self.rekkari = rekkari
         self.huippunopeus = huippunopeus
+        self.nopeus = 0
+        self.matka = 0
 
     def kiihdyta(self, v):
         self.nopeus = self.nopeus + v
@@ -26,14 +25,11 @@ class Kilpailu:
         self.kilpailu_nimi = kilpailu_nimi
         self.reitin_pituus = reitin_pituus
         self.autot = autot
+
     def tunti_kuluu(self):
-        i = True
-        while i:
-            for auto in autot:
-                auto.kiihdyta(random.randint(-10, 15))
-                auto.kulje(1)
-                if auto.matka >= 10000:
-                    i = False
+        for auto in autot:
+            auto.kiihdyta(random.randint(-10, 15))
+            auto.kulje(1)
 
     def tulosta_tilanne(self):
 
@@ -52,7 +48,10 @@ class Kilpailu:
     def kilpailu_ohi(self):
         i = True
         while i:
-
+            self.tunti_kuluu()
+            if self.autot.matka >= self.reitin_pituus:
+                i = False
+        return True
 
 # PÄÄOHJELMA
 
@@ -62,9 +61,14 @@ for i in range(10):
     n = random.randint(100, 200)
     autot.append(Auto(f"ABC-{i+1}", n))
 
+kisat = Kilpailu("Suuri romuralli", 8000, autot)
 
+    while True:
+        kisat.kilpailu_ohi()
 
-for auto in autot:
-    print("\n".join((f"Rekisteritunnus: {auto.rekkari:>20}", f"Huippunopeus: {auto.huippunopeus:>23}",
-                 f"Tämänhetkillinen nopeus: {auto.nopeus:>12}", f"Kuljettu matka: {auto.matka:>21}")))
-    print()
+kisat.tulosta_tilanne
+
+#for auto in autot:
+   # print("\n".join((f"Rekisteritunnus: {auto.rekkari:>20}", f"Huippunopeus: {auto.huippunopeus:>23}",
+               #  f"Tämänhetkillinen nopeus: {auto.nopeus:>12}", f"Kuljettu matka: {auto.matka:>21}")))
+print()

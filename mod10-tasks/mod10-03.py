@@ -44,7 +44,7 @@ class Talo:
     def aja_hissia(self, num, n):
         self.num = num
         print(f"Hissi nro {num+1} lähtee {n}. kerrokseen")
-        self.hissit[num - 1].siirry_kerrokseen(n)
+        self.hissit[num-1].siirry_kerrokseen(n)
         print(f"Hissi nro {num+1} on {n}. kerroksessa")
 
     def palohalytys(self):
