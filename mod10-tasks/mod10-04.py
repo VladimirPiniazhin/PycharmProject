@@ -1,59 +1,43 @@
-import time
-class Hissi:
-    "Tämä luokka kuvailee hissin ominaisuksia"
+import random
+class Auto:
+    "Tämä luokka kuvailee auton ominaisuksia"
 
-    #kerros = 0  #Nykyinen kerros
-    def __init__(self, alimman, ylimman):
-        self.alimman = alimman
-        self.ylimman  = ylimman
-        self.kerros = 0  # Nykyinen kerros
+    nopeus = 0
+    matka = 0
 
-    def siirry_kerrokseen(self, n):
-        if n < self.alimman or n > self.ylimman:
-            return
-        while self.kerros != n:
-           if n > self.kerros:
-               self.kerros_ylos()
-               time.sleep(1)
-               print(f"Nyt on {self.kerros}. kerros")
-           elif n < self.kerros:
-               self.kerros_alas()
-               time.sleep(1)
-               print(f"Nyt on {self.kerros}. kerros")
-        #print(f"Olemme saapuneet. {self.kerros}. kerros")
+    def __init__(self, rekkari, huippunopeus):
+        self.rekkari = rekkari
+        self.huippunopeus = huippunopeus
 
-    def kerros_ylos (self):
-       self.kerros = self.kerros + 1
+    def kiihdyta(self, v):
+        self.nopeus = self.nopeus + v
+        if self.nopeus >= self.huippunopeus:
+            self.nopeus = self.huippunopeus
+        elif self.nopeus <= 0:
+            self.nopeus = 0
 
-    def kerros_alas(self):
-       self.kerros = self.kerros - 1
-
-
-class Talo:
-    "Tämä luokka kuvailee talon ominaisuksia"
-
-    def __init__(self, alimman, ylimman, h_maara):
-        self.h_maara = h_maara
-        self.hissit = []
-        for i in range(self.h_maara):
-            self.hissit.append(Hissi(alimman, ylimman))
-
-    def aja_hissia(self, num, n):
-        self.num = num
-        self.hissit[num - 1].siirry_kerrokseen(n)
-        print(f"Hissi nro {num+1} on {n}. kerroksessa")
-
-    def palohalytys(self):
-        print(f"Huomio! Tulipalo!")
-        for i in range(self.h_maara):
-            self.aja_hissia(i, 0)
+    def kulje(self, t):
+        self.matka = self.matka + self.nopeus * t
 
 # PÄÄOHJELMA
 
-t = Talo(0,10,3)
+autot = []
 
-t.aja_hissia(1, 7)
+for i in range(10):
+    n = random.randint(100, 200)
+    autot.append(Auto(f"ABC-{i+1}", n))
 
-time.sleep(3)
+i = True
 
-t.palohalytys()
+while i:
+    for auto in autot:
+        auto.kiihdyta(random.randint(-10, 15))
+        auto.kulje(1)
+        if auto.matka >= 10000:
+            i = False
+
+
+for auto in autot:
+    print("\n".join((f"Rekisteritunnus: {auto.rekkari:>20}", f"Huippunopeus: {auto.huippunopeus:>23}",
+                 f"Tämänhetkillinen nopeus: {auto.nopeus:>12}", f"Kuljettu matka: {auto.matka:>21}")))
+    print()
