@@ -1,4 +1,5 @@
 import random
+import time
 from prettytable import PrettyTable
 class Auto:
     "Tämä luokka kuvailee auton ominaisuksia"
@@ -30,29 +31,30 @@ class Kilpailu:
         for auto in self.autot:
             auto.kiihdyta(random.randint(-10, 15))
             auto.kulje(1)
-            if auto.matka >= self.reitin_pituus:
-                return False
 
     def kilpailu_ohi(self):
-        while True:
-            self.tunti_kuluu()
-
+        for auto in autot:
+            if auto.matka >= self.reitin_pituus:
+                return True
 
     def tulosta_tilanne(self):
 
         x = PrettyTable()
 
-        x.field_names = ["City name", "Area", "Population", "Annual Rainfall"]
+        x.field_names = ["Rekkari", "Huippunopeus", "Tämänhetkillinen nopeus", "AKuljettu matka"]
 
-        x.add_row(["Adelaide", 1295, 1158259, 600.5])
-        x.add_row(["Brisbane", 5905, 1857594, 1146.4])
-        x.add_row(["Darwin", 112, 120900, 1714.7])
-        x.add_row(["Hobart", 1357, 205556, 619.5])
-        x.add_row(["Sydney", 2058, 4336374, 1214.8])
-        x.add_row(["Melbourne", 1566, 3806092, 646.9])
-        x.add_row(["Perth", 5386, 1554769, 869.4])
+        x.add_row([self.autot[0].rekkari, self.autot[0].huippunopeus, self.autot[0].nopeus, self.autot[0].matka])
+        x.add_row([self.autot[1].rekkari, self.autot[1].huippunopeus, self.autot[1].nopeus, self.autot[1].matka])
+        x.add_row([self.autot[2].rekkari, self.autot[2].huippunopeus, self.autot[2].nopeus, self.autot[2].matka])
+        x.add_row([self.autot[3].rekkari, self.autot[3].huippunopeus, self.autot[3].nopeus, self.autot[3].matka])
+        x.add_row([self.autot[4].rekkari, self.autot[4].huippunopeus, self.autot[4].nopeus, self.autot[4].matka])
+        x.add_row([self.autot[5].rekkari, self.autot[5].huippunopeus, self.autot[5].nopeus, self.autot[5].matka])
+        x.add_row([self.autot[6].rekkari, self.autot[6].huippunopeus, self.autot[6].nopeus, self.autot[6].matka])
+        x.add_row([self.autot[7].rekkari, self.autot[7].huippunopeus, self.autot[7].nopeus, self.autot[7].matka])
+        x.add_row([self.autot[8].rekkari, self.autot[8].huippunopeus, self.autot[8].nopeus, self.autot[8].matka])
+        x.add_row([self.autot[9].rekkari, self.autot[9].huippunopeus, self.autot[9].nopeus, self.autot[9].matka])
 
-
+        print(x)
 
 # PÄÄOHJELMA
 
@@ -64,12 +66,7 @@ for i in range(10):
 
 kisat = Kilpailu("Suuri romuralli", 8000, autot)
 
+while kisat.kilpailu_ohi() != True:
+    kisat.tunti_kuluu()
+kisat.tulosta_tilanne()
 
-#for i in kisat.autot:
-    #print(i.nopeus)
-
-kisat.kilpailu_ohi()
-
-#for auto in autot:
-   # print("\n".join((f"Rekisteritunnus: {auto.rekkari:>20}", f"Huippunopeus: {auto.huippunopeus:>23}",
-               #  f"Tämänhetkillinen nopeus: {auto.nopeus:>12}", f"Kuljettu matka: {auto.matka:>21}")))
