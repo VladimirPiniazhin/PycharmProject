@@ -30,6 +30,8 @@ class Kilpailu:
         for auto in autot:
             auto.kiihdyta(random.randint(-10, 15))
             auto.kulje(1)
+            if auto.matka >= self.reitin_pituus:
+                return False
 
     def tulosta_tilanne(self):
 
@@ -49,8 +51,6 @@ class Kilpailu:
         i = True
         while i:
             self.tunti_kuluu()
-            if self.autot.matka >= self.reitin_pituus:
-                i = False
         return True
 
 # PÄÄOHJELMA
@@ -63,12 +63,11 @@ for i in range(10):
 
 kisat = Kilpailu("Suuri romuralli", 8000, autot)
 
-    while True:
-        kisat.kilpailu_ohi()
+while True:
+    kisat.kilpailu_ohi()
 
-kisat.tulosta_tilanne
+#kisat.tulosta_tilanne
 
 #for auto in autot:
    # print("\n".join((f"Rekisteritunnus: {auto.rekkari:>20}", f"Huippunopeus: {auto.huippunopeus:>23}",
                #  f"Tämänhetkillinen nopeus: {auto.nopeus:>12}", f"Kuljettu matka: {auto.matka:>21}")))
-print()
