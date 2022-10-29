@@ -27,11 +27,16 @@ class Kilpailu:
         self.autot = autot
 
     def tunti_kuluu(self):
-        for auto in autot:
+        for auto in self.autot:
             auto.kiihdyta(random.randint(-10, 15))
             auto.kulje(1)
             if auto.matka >= self.reitin_pituus:
                 return False
+
+    def kilpailu_ohi(self):
+        while True:
+            self.tunti_kuluu()
+
 
     def tulosta_tilanne(self):
 
@@ -47,11 +52,7 @@ class Kilpailu:
         x.add_row(["Melbourne", 1566, 3806092, 646.9])
         x.add_row(["Perth", 5386, 1554769, 869.4])
 
-    def kilpailu_ohi(self):
-        i = True
-        while i:
-            self.tunti_kuluu()
-        return True
+
 
 # PÄÄOHJELMA
 
@@ -63,10 +64,11 @@ for i in range(10):
 
 kisat = Kilpailu("Suuri romuralli", 8000, autot)
 
-while True:
-    kisat.kilpailu_ohi()
 
-#kisat.tulosta_tilanne
+#for i in kisat.autot:
+    #print(i.nopeus)
+
+kisat.kilpailu_ohi()
 
 #for auto in autot:
    # print("\n".join((f"Rekisteritunnus: {auto.rekkari:>20}", f"Huippunopeus: {auto.huippunopeus:>23}",
