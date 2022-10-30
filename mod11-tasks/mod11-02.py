@@ -46,7 +46,7 @@ autot = []
 def tulosta():
     x = PrettyTable()
 
-    x.field_names = ["Rekkari", "Huippunopeus", "Tämänhetkillinen nopeus", "AKuljettu matka"]
+    x.field_names = ["Rekkari", "Huippunopeus (km/h)", "Tämänhetkillinen nopeus (km/h)", "AKuljettu matka (km)"]
 
     x.add_row([autot[0].rekkari, autot[0].huippunopeus, autot[0].nopeus, autot[0].matka])
     x.add_row([autot[1].rekkari, autot[1].huippunopeus, autot[1].nopeus, autot[1].matka])
