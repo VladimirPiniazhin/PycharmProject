@@ -38,3 +38,12 @@ class Lehti(Julkaisu):
         super().tulosta_tiedot()
         print("\n".join((f"#: {self.numero:>20}", f"Nimi: {self.nimi:>23}",
                  f"Päätoimittaja: {self.paatoimittaja:>12}")))
+
+# PÄÄOHJELMÄ
+
+julkaisut = []
+julkaisut.append(Lehti('Aku Ankka', 'Aki Hyyppä'))
+julkaisut.append(Kirja("Hytti n:o 6", "Rosa Liksom", 200))
+
+for t in julkaisut:
+    t.tulosta_tiedot()
