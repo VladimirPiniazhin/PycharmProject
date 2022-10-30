@@ -8,8 +8,8 @@ vastaus = requests.get(pyynto).json()
 
 #print(vastaus)
 #print(json.dumps(vastaus, indent=2))
-
 #print(vastaus["value"])
+
 try:
     vastaus = requests.get(pyynto)
     if vastaus.status_code==200:

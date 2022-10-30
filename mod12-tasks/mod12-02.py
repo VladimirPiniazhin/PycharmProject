@@ -3,40 +3,38 @@
 # Perehdy rajapinnan dokumentaatioon riittävästi. Palveluun rekisteröityminen on tarpeen, jotta saat
 # rajapintapyynnöissä tarvittavan API-avaimen (API key). Selvitä myös, miten saat Kelvin-asteet
 # muunnettua Celsius-asteiksi.
-
+from prettytable import PrettyTable
 import requests
 import json
-from geopy.geocoders import Nominatim  # Подключаем библиотеку
-from geopy.distance import geodesic  # И дополнения
+from geopy.geocoders import Nominatim  # Kirjaston kytkentämien
 
 geolocator = Nominatim(user_agent="Tester")  # Määritetään sovellus
-address_1 = str(input('Syötä 1. kaupunki: \n'))  # 1. kaupungin määrittäminen
+address = str(input("Syötä kaupungin nimi: \n"))  # kaupungin määrittäminen
+location = geolocator.geocode(address)  # Saadetaan kaupungin koko nimi
+print("Kaupunki: ", location)  # Tulostetaan tiedot
+print("kaupungin koordinaatit: ", location.latitude, location.longitude)  # Tulostetaan tiedot
+gps_point = location.latitude, location.longitude  # Tulostetaan kaupungin koordinaatit
 
-location_1 = geolocator.geocode(address_1)  # Saadetaan 1. kaupungin koko nimi
+# Pyynnön malli:pyynto = f"http://api.openweathermap.org/geo/1.0/direct?q={kaupunki}&limit=1&appid=4d512b69b0f3cf24a7b6626699ed76bb" #+ hakusana
 
-print('1. Kaupunki: ', location_1)  # Tulostetaan tiedot
-print('1. kaupungin koordinaatit: ', location_1.latitude, location_1.longitude)  # # Tulostetaan tiedot
-gps_point_1 = location_1.latitude, location_1.longitude  # Tulostetaan 1. kaupungin koordinaatit
+def tulosta():
+    x = PrettyTable()
 
+    x.field_names = ["Sky", "Temp (C)", "Pressure (mm)", "Wind speed (m/s)"]
+    x.add_row([vastaus2["weather"][0]["main"], round((vastaus2["main"]["temp"]-273), 2), vastaus2["main"]["pressure"], vastaus2["wind"]["speed"]])
 
+    print(x)
 
+lat = location.latitude
+lon = location.longitude
 
+#print(lat)
+#print(lon)
 
-
-
-
-#kaupunki = input("Anna hakusana: ")
-#api_key = "4d512b69b0f3cf24a7b6626699ed76bb"4d512b69b0f3cf24a7b6626699ed76bb
-
-# Pyynnön malli: https://api.tvmaze.com/search/shows?q=girls
-pyynto1 = f"http://api.openweathermap.org/geo/1.0/direct?q={kaupunki}&limit=1&appid=4d512b69b0f3cf24a7b6626699ed76bb" #+ hakusana
-
-vastaus1 = requests.get(pyynto1).json()
-#print(json.dumps(vastaus1, indent=2))
-
-lat = vastaus1[0]["lat"]
-lon = vastaus1[0]["lon"]
-
-pyynto2 = f"https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude=minutely, hourly, daily, alerts&appid=4d512b69b0f3cf24a7b6626699ed76bb"
+pyynto2 = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid=4d512b69b0f3cf24a7b6626699ed76bb"
 vastaus2 = requests.get(pyynto2).json()
-print(json.dumps(vastaus2, indent=2))
+#print(vastaus2)
+#print(json.dumps(vastaus2, indent=2))
+
+tulosta()
+
