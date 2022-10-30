@@ -41,7 +41,7 @@ class Kilpailu:
 
         x = PrettyTable()
 
-        x.field_names = ["Rekkari", "Huippunopeus", "Tämänhetkillinen nopeus", "AKuljettu matka"]
+        x.field_names = ["Rekkari", "Huippunopeus (km/h)", "Tämänhetkillinen nopeus (km/h)", "AKuljettu matka (km)"]
 
         x.add_row([self.autot[0].rekkari, self.autot[0].huippunopeus, self.autot[0].nopeus, self.autot[0].matka])
         x.add_row([self.autot[1].rekkari, self.autot[1].huippunopeus, self.autot[1].nopeus, self.autot[1].matka])
