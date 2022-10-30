@@ -27,3 +27,14 @@ class Kirja(Julkaisu):
         super().tulosta_tiedot()
         print("\n".join((f"#: {self.numero:>20}", f"Nimi: {self.nimi:>23}",
                  f"Kirjoittaja: {self.kirjoittaja:>12}", f"Sivumaara: {self.sivumaara:>21}")))
+
+class Lehti(Julkaisu):
+
+    def __int__(self, nimi, paatoimittaja):
+        self.paatoimittaja = paatoimittaja
+        super().__int__(nimi)
+
+    def tulosta_tiedot(self):
+        super().tulosta_tiedot()
+        print("\n".join((f"#: {self.numero:>20}", f"Nimi: {self.nimi:>23}",
+                 f"Päätoimittaja: {self.paatoimittaja:>12}")))
