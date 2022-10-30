@@ -14,7 +14,7 @@ class Julkaisu:
         self.nimi = nimi
 
     def tulosta_tiedot(self):
-        pass
+        print(f"{self.numero}: {self.nimi}")
 
 class Kirja(Julkaisu):
 
