@@ -42,7 +42,7 @@ class Lehti(Julkaisu):
 # PÄÄOHJELMÄ
 
 julkaisut = []
-julkaisut.append(Lehti('Aku Ankka', 'Aki Hyyppä'))
+julkaisut.append(Lehti("Aku Ankka", "Aki Hyyppä"))
 julkaisut.append(Kirja("Hytti n:o 6", "Rosa Liksom", 200))
 
 for t in julkaisut:
