@@ -9,12 +9,16 @@ import json
 from geopy.geocoders import Nominatim  # Подключаем библиотеку
 from geopy.distance import geodesic  # И дополнения
 
-geolocator = Nominatim(user_agent="Tester")  # Указываем название приложения
-address_1 = str(input('Введите город 1: \n'))  # Получаем название первого города
-location_1 = geolocator.geocode(address_1)  # Получаем полное название первого города
-print('Город 1: ', location_1)  # Выводим первичные данные
-print('Координаты города 1: ', location_1.latitude, location_1.longitude)  # Выводим координаты первого города
-gps_point_1 = location_1.latitude, location_1.longitude  # Выводим координаты первого города
+geolocator = Nominatim(user_agent="Tester")  # Määritetään sovellus
+address_1 = str(input('Syötä 1. kaupunki: \n'))  # 1. kaupungin määrittäminen
+
+location_1 = geolocator.geocode(address_1)  # Saadetaan 1. kaupungin koko nimi
+
+print('1. Kaupunki: ', location_1)  # Tulostetaan tiedot
+print('1. kaupungin koordinaatit: ', location_1.latitude, location_1.longitude)  # # Tulostetaan tiedot
+gps_point_1 = location_1.latitude, location_1.longitude  # Tulostetaan 1. kaupungin koordinaatit
+
+
 
 
 
