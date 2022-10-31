@@ -9,7 +9,7 @@ import json
 from geopy.geocoders import Nominatim  # Kirjaston kytkentämien
 
 geolocator = Nominatim(user_agent="Tester")  # Määritetään sovellus
-address = str(input("Syötä kaupungin nimi: \n"))  # kaupungin määrittäminen
+address = str(input("Syötä paikan (kaupungin) nimi: \n"))  # kaupungin määrittäminen
 location = geolocator.geocode(address)  # Saadetaan kaupungin koko nimi
 print("Kaupunki: ", location)  # Tulostetaan tiedot
 print("kaupungin koordinaatit: ", location.latitude, location.longitude)  # Tulostetaan tiedot
