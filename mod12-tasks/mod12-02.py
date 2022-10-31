@@ -19,10 +19,8 @@ gps_point = location.latitude, location.longitude  # Tulostetaan kaupungin koord
 
 def tulosta():
     x = PrettyTable()
-
     x.field_names = ["Sky", "Temp (C)", "Pressure (mm)", "Wind speed (m/s)"]
     x.add_row([vastaus2["weather"][0]["main"], round((vastaus2["main"]["temp"]-273), 2), vastaus2["main"]["pressure"], vastaus2["wind"]["speed"]])
-
     print(x)
 
 lat = location.latitude
