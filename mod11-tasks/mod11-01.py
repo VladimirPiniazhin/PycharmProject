@@ -8,7 +8,7 @@ class Julkaisu:
 
     lukumaara = 0
 
-    def __int__(self, nimi):
+    def __init__(self, nimi):
         self.nimi = nimi
         Julkaisu.lukumaara += 1
         self.lukumaara = Julkaisu.lukumaara
@@ -19,8 +19,8 @@ class Julkaisu:
 
 class Kirja(Julkaisu):
 
-    def __int__(self, nimi, kirjoittaja, sivumaara):
-        super().__int__(nimi)
+    def __init__(self, nimi, kirjoittaja, sivumaara):
+        super().__init__(nimi)
         self.kirjoittaja = kirjoittaja
         self.sivumaara = sivumaara
 
@@ -32,8 +32,8 @@ class Kirja(Julkaisu):
 
 class Lehti(Julkaisu):
 
-    def __int__(self, nimi, paatoimittaja):
-        super().__int__(nimi)
+    def __init__(self, nimi, paatoimittaja):
+        super().__init__(nimi)
         self.paatoimittaja = paatoimittaja
 
 
