@@ -15,7 +15,8 @@ class Julkaisu:
 
 
     def tulosta_tiedot(self):
-        print(f"{self.lukumaara}: {self.nimi}")
+        pass
+        #print(f"{self.lukumaara}: {self.nimi}")
 
 class Kirja(Julkaisu):
 
@@ -27,8 +28,9 @@ class Kirja(Julkaisu):
 
     def tulosta_tiedot(self):
         super().tulosta_tiedot()
-        print("\n".join((f"#: {self.lukumaara:>20}", f"Nimi: {self.nimi:>23}",
-                 f"Kirjoittaja: {self.kirjoittaja:>12}", f"Sivumaara: {self.sivumaara:>21}")))
+        print("\n".join((f"Julkaisun tyypi:        Kirja", f"#: {self.lukumaara:>26}", f"Nimi: {self.nimi:>23}",
+                 f"Kirjoittaja: {self.kirjoittaja:>16}", f"Sivumaara: {self.sivumaara:>18}")))
+        print()
 
 class Lehti(Julkaisu):
 
@@ -39,8 +41,9 @@ class Lehti(Julkaisu):
 
     def tulosta_tiedot(self):
         super().tulosta_tiedot()
-        print("\n".join((f"#: {self.lukumaara:>20}", f"Nimi: {self.nimi:>23}",
-                 f"Päätoimittaja: {self.paatoimittaja:>12}")))
+        print("\n".join((f"Julkaisun tyypi:        Lehti", f"#: {self.lukumaara:>26}", f"Nimi: {self.nimi:>23}",
+                 f"Päätoimittaja: {self.paatoimittaja:>14}")))
+        print()
 
 # PÄÄOHJELMÄ
 

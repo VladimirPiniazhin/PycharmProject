@@ -3,6 +3,7 @@
 # alustajat. Tee aliluokkiin metodi tulosta_tiedot, joka tudostaa kyseisen julkaisun kaikki tiedot. Luo pääohjelmassa
 # julkaisut Aku Ankka (päätoimittaja Aki Hyyppä) ja Hytti n:o 6 (kirjailija Rosa Liksom, 200 sivua). Tulosta molempien
 # julkaisujen kaikki tiedot toteuttamiesi metodien avulla.
+
 class Julkaisu:
     "Tämä luokka kuvailee auton ominaisuksia"
 
@@ -25,7 +26,9 @@ class Kirja(Julkaisu):
 
     def tulosta(self):
         super().tulosta()
-        print("\n".join((f"Julakisu #: {self.lukumaara}", f"Type: Kirja", f"Nimi: {self.nimi}", f"Kirjoittaja: {self.kirjoittaja}", f"Sivumäärä: {self.s_maara}")))
+        print("\n".join((f"#: {self.lukumaara:>26}", f"Nimi: {self.nimi:>23}",
+                 f"Kirjoittaja: {self.kirjoittaja:>16}", f"Sivumaara: {self.s_maara:>18}")))
+        print()
 
 class Lehti(Julkaisu):
 
@@ -35,7 +38,8 @@ class Lehti(Julkaisu):
 
     def tulosta(self):
         super().tulosta()
-        print("\n".join((f"Julakisu #: {self.lukumaara}", f"Type: Lehti",  f"Nimi: {self.nimi}", f"Päätoimittaja: {self.paatomittaja}")))
+        print("\n".join((f"#: {self.lukumaara:>26}", f"Nimi: {self.nimi:>23}",
+                 f"Päätoimittaja: {self.paatomittaja:>14}")))
 
 # PÄÄOHJELMA
 
