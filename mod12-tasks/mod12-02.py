@@ -20,7 +20,7 @@ gps_point = location.latitude, location.longitude  # Tulostetaan kaupungin koord
 def tulosta():
     x = PrettyTable()
     x.field_names = ["Sky", "Temp (C)", "Pressure (mm)", "Wind speed (m/s)"]
-    x.add_row([vastaus2["weather"][0]["main"], round((vastaus2["main"]["temp"]-273), 2), vastaus2["main"]["pressure"], vastaus2["wind"]["speed"]])
+    x.add_row([vastaus2["weather"][0]["main"], round(vastaus2["main"]["temp"], 2), vastaus2["main"]["pressure"], vastaus2["wind"]["speed"]])
     print(x)
 
 lat = location.latitude
@@ -29,7 +29,7 @@ lon = location.longitude
 #print(lat)
 #print(lon)
 
-pyynto2 = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid=4d512b69b0f3cf24a7b6626699ed76bb"
+pyynto2 = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&mode=json&units=metric&appid=4d512b69b0f3cf24a7b6626699ed76bb"
 vastaus2 = requests.get(pyynto2).json()
 #print(vastaus2)
 #print(json.dumps(vastaus2, indent=2))
