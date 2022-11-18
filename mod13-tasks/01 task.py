@@ -3,12 +3,11 @@ import json
 from flask import Flask, request, Response
 
 app = Flask(__name__)
-@app.route('/alkuluku/<number>')
+@app.route("/alkuluku/<number>")
 def isPrime(number):
-    args = request.args
-
+    #args = request.args
+    number = float(number)
     try:
-        number = float(args.get("number"))
         k = 0
         for i in range(2, number // 2 + 1):
             if number % i == 0:
