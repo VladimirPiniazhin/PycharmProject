@@ -6,22 +6,18 @@ app = Flask(__name__)
 @app.route("/alkuluku/<number>")
 def isPrime(number):
     #args = request.args
-    number = float(number)
     try:
+        number = float(number)
         k = 0
         for i in range(2, number // 2 + 1):
             if number % i == 0:
                 k += 1
         if k == 0:
-            return True
+            response_dict = {"number": number, "isPrime": "true"}
         else:
-            return False
+            response_dict = {"number": number, "isPrime": "false"}
 
-        response_dict = {
-            "number": number,
-            "isPrime": isPrime(number)
 
-        }
 
         response_json = json.dumps(response_dict)
 
