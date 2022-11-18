@@ -24,21 +24,18 @@ def alkuluku(number):
         return Response(response=response_json, status=200, mimetype="application/json")
 
     except TypeError:
-        response_json =json.dumps({"message": "invalid parametrs: missing?", "status": "400 Bad request"})
+        response_json = json.dumps({"message": "invalid parametrs: missing?", "status": "400 Bad request"})
         return Response(response=response_json, status=400, mimetype="application/json",)
 
     except ValueError:
-        response_json =json.dumps("invalid parametr value: not a number?")
+        response_json = json.dumps("invalid parametr value: not a number?")
         return Response(response=response_json, status=400, mimetype="application/json")
 
 @app.errorhandler(404)
-
-
-
 def page_not_found(error):
-    # convert error object (error) to string
+    #convert error object (error) to string
     error_text = str(error)
-    response_json = json.dumps( {"error": error_text})
+    response_json = json.dumps({"error": error_text})
     return Response(response=response_json, status=400, mimetype="application/json")
 
 if __name__ == '__main__':
