@@ -1,20 +1,37 @@
-from flask import Flask, request
+import json
+
+from flask import Flask, request, Response
 
 app = Flask(__name__)
 @app.route('/summa')
 def summa():
     args = request.args
-    luku1 = float(args.get("luku1"))
-    luku2 = float(args.get("luku2"))
-    summa = luku1+luku2
 
-    vastaus = {
-        "luku1": luku1,
-        "luku2": luku2,
-        "summa": summa
-    }
+    try:
+        luku1 = float(args.get("luku1"))
+        luku2 = float(args.get("luku2"))
+        summa = luku1+luku2
 
-    return vastaus
+        response_dict = {
+            "luku1": luku1,
+            "luku2": luku2,
+            "summa": summa
+        }
+
+        response_json = json.dumps(response_dict)
+
+        return Response(response=response_json, status=200, mimetype="application/json")
+
+    except TypeError:
+        responseText ="invalid parametrs: missing?"
+        return Response(response=responseText, status=400)
+
+    except ValueError:
+        responseText ="invalid parametr value: not a number?"
+        return Response(response=responseText, status=400)
+
+
+
 
 
 
