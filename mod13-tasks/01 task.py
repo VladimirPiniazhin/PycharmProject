@@ -8,6 +8,12 @@ def summa():
     luku2 = float(args.get("luku2"))
     summa = luku1+luku2
     return str(summa)
+    vastaus = {
+        "luku1" : luku1,
+        "luku2" : luku2,
+        "summa" : summa
+    }
+
 @app.route('/kukkuu')
 
 def do_something():
