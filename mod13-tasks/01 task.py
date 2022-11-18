@@ -4,10 +4,10 @@ from flask import Flask, request, Response
 
 app = Flask(__name__)
 @app.route("/alkuluku/<number>")
-def isPrime(number):
+def alkuluku(number):
     #args = request.args
     try:
-        number = float(number)
+        number = int(number)
         k = 0
         for i in range(2, number // 2 + 1):
             if number % i == 0:
@@ -33,6 +33,8 @@ def isPrime(number):
 
 @app.errorhandler(404)
 
+
+
 def page_not_found(error):
     # convert error object (error) to string
     error_text = str(error)
@@ -40,4 +42,4 @@ def page_not_found(error):
     return Response(response=response_json, status=400, mimetype="application/json")
 
 if __name__ == '__main__':
-    app.run(use_reloader=True, host='127.0.0.1', port=5000)
+    app.run(use_reloader=True, host='127.0.0.1', port=3000)
