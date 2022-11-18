@@ -9,9 +9,9 @@ def summa():
     summa = luku1+luku2
 
     vastaus = {
-        "luku1" : luku1,
-        "luku2" : luku2,
-        "summa" : summa
+        "luku1": luku1,
+        "luku2": luku2,
+        "summa": summa
     }
 
     return vastaus
