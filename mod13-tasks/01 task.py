@@ -23,7 +23,7 @@ def summa():
         return Response(response=response_json, status=200, mimetype="application/json")
 
     except TypeError:
-        response_json =json.dumps("invalid parametrs: missing?")
+        response_json =json.dumps({"message": "invalid parametrs: missing?", "status": "400 Bad request"})
         return Response(response=response_json, status=400, mimetype="application/json",)
 
     except ValueError:
