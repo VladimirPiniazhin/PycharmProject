@@ -13,9 +13,9 @@ def alkuluku(number):
             if number % i == 0:
                 k += 1
         if k == 0:
-            response_dict = {"number": number, "isPrime": "true"}
+            response_dict = {"Number": number, "isPrime": True}
         else:
-            response_dict = {"number": number, "isPrime": "false"}
+            response_dict = {"Number": number, "isPrime": False}
 
 
 
