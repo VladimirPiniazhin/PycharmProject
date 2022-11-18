@@ -3,19 +3,25 @@ import json
 from flask import Flask, request, Response
 
 app = Flask(__name__)
-@app.route('/summa')
-def summa():
+@app.route('/alkuluku/<number>')
+def isPrime(number):
     args = request.args
 
     try:
-        luku1 = float(args.get("luku1"))
-        luku2 = float(args.get("luku2"))
-        summa = luku1+luku2
+        number = float(args.get("number"))
+        k = 0
+        for i in range(2, number // 2 + 1):
+            if number % i == 0:
+                k += 1
+        if k == 0:
+            return True
+        else:
+            return False
 
         response_dict = {
-            "luku1": luku1,
-            "luku2": luku2,
-            "summa": summa
+            "number": number,
+            "isPrime": isPrime(number)
+
         }
 
         response_json = json.dumps(response_dict)
