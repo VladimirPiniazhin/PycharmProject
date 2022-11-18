@@ -28,17 +28,15 @@ def summa():
 
     except ValueError:
         response_json =json.dumps("invalid parametr value: not a number?")
-        return Response(response=response_json, status=400, mimetype="application/jsonmimetype=")
+        return Response(response=response_json, status=400, mimetype="application/json")
 
+@app.errorhandler(404)
 
-
-
-
-
-@app.route('/kukkuu')
-
-def do_something():
-    return "Moro"
+def page_not_found(error):
+    # convert error object (error) to string
+    error_text = str(error)
+    response_json = json.dumps( {"error": error_text})
+    return Response(response=response_json, status=400, mimetype="application/json")
 
 if __name__ == '__main__':
     app.run(use_reloader=True, host='127.0.0.1', port=5000)
