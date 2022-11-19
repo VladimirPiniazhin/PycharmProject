@@ -15,13 +15,14 @@ def connect_database():
 connection = connect_database()
 
 
-def get_airport(ident):
-    sql = f"SELECT name, iso_region FROM airport WHERE ident ='{ident}';"
+def get_airport(isao):
+    sql = f"SELECT name, municipality FROM airport WHERE ident ='{isao}';"
     cursor = connection.cursor()
     cursor.execute(sql)
     result = cursor.fetchall()  # type of result: list
     print("Koko tuloslista: ", result)
     print("Tuloksia yhteensä: ", cursor.rowcount)
+    return result
 
 app = Flask(__name__)
 
@@ -29,9 +30,9 @@ app = Flask(__name__)
 def kentta(isao):
     #args = request.args
     try:
-        get_airport(isao)
-
-        response_json = json.dumps(response_dict)
+        get_list = get_airport(isao)
+        response_json = {"ICAO": isao, "Name": get_list[0][0], "Municipality": get_list[0][1]}
+        #response_json = json.dumps(response_dict)
 
         return Response(response=response_json, status=200, mimetype="application/json")
 
