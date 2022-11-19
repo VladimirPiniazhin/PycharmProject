@@ -3,7 +3,9 @@ import json
 from flask import Flask, request, Response
 
 app = Flask(__name__)
+
 @app.route("/alkuluku/<number>")
+
 def alkuluku(number):
     #args = request.args
     try:
@@ -32,6 +34,7 @@ def alkuluku(number):
         return Response(response=response_json, status=400, mimetype="application/json")
 
 @app.errorhandler(404)
+
 def page_not_found(error):
     #convert error object (error) to string
     error_text = str(error)

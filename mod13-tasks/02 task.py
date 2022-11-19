@@ -26,7 +26,7 @@ def get_airport(isao):
 
 app = Flask(__name__)
 
-@app.route("/kentta/<isao>")
+@app.route("/kenttä/<isao>")
 def kentta(isao):
     #args = request.args
     try:
