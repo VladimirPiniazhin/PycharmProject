@@ -31,8 +31,8 @@ def kentta(isao):
     #args = request.args
     try:
         get_list = get_airport(isao)
-        response_json = {"ICAO": isao, "Name": get_list[0][0], "Municipality": get_list[0][1]}
-        #response_json = json.dumps(response_dict)
+        response_dict = {"ICAO": isao, "Name": get_list[0][0], "Municipality": get_list[0][1]}
+        response_json = json.dumps(response_dict)
 
         return Response(response=response_json, status=200, mimetype="application/json")
 
